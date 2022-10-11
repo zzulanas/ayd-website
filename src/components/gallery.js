@@ -1,20 +1,31 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Section, Container, Heading, Text } from "./ui"
+import { Section, Container, Text } from "./ui"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export default function Gallery(props) {
+export default function Gallery({data}) {
+
   return (
     <Section>
+    <Text>TEST</Text>
       <Container>
-        <Heading>{props.heading}</Heading>
-        <Text>{props.text}</Text>
+        {data.images.map((image) => (
+          <GatsbyImage
+            image={getImage(image.gatsbyImageData)}
+          />
+          ))}
       </Container>
     </Section>
   )
 }
 
 export const query = graphql`
-  fragment HomepageBannerContent on HomepageBanner {
-    gallery
+  {
+    gallery{
+      images {
+        id
+        gatsbyImageData
+      }
+    }
   }
 `

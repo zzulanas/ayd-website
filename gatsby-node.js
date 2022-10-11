@@ -325,6 +325,18 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [AboutProfile]
     }
 
+    interface Gallery implements Node{
+      id: ID!
+      images: [HomepageImage]
+      photos: [HomepageImage]
+    }
+
+    interface HomepageGallery implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      images: [HomepageImage]
+    }
+
     interface AboutLogoList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -509,6 +521,18 @@ exports.createSchemaCustomization = async ({ actions }) => {
       description: String
       image: HomepageImage @link(from: "image___NODE")
       content: [HomepageBlock] @link(from: "content___NODE")
+    }
+
+    type ContentfulHomepageGallery implements Node & HomepageGallery & HomepageBlock {
+      id: ID!
+      blocktype: String
+      images: [HomepageImage] @link(from: "image___NODE")
+    }
+
+    type ContenftulGallery implements Node & Gallery{
+      id: ID!
+      images: [HomepageImage] @link(from: "image___NODE")
+      photos: [HomepageImage] @link(from: "image___NODE")
     }
   `)
 
