@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Container, Box, Heading } from "../components/ui"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Gallery from "../components/gallery"
 
 export default function Page(props) {
   const { page } = props.data
@@ -18,6 +19,7 @@ export default function Page(props) {
             }}
           />
           <GatsbyImage image={getImage(page.image.gatsbyImageData)}/>
+          <Gallery/>
         </Container>
       </Box>
     </Layout>

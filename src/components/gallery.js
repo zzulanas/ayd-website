@@ -1,17 +1,27 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { Section, Container, Text } from "./ui"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export default function Gallery({data}) {
-
+export default function Gallery() {
+  const data = useStaticQuery(graphql`
+  query galleryQuery{
+    contentfulGallery{
+      images {
+        id
+        gatsbyImageData
+      }
+    }
+  }
+`)
+console.log(data.contentfulGallery.images)
   return (
     <Section>
-    <Text>TEST</Text>
       <Container>
-        {data.images.map((image) => (
+        {data.contentfulGallery.images.map((image) => (
           <GatsbyImage
             image={getImage(image.gatsbyImageData)}
+            style={{margin : '10px'}}
           />
           ))}
       </Container>
@@ -19,13 +29,13 @@ export default function Gallery({data}) {
   )
 }
 
-export const query = graphql`
-  {
-    gallery{
-      images {
-        id
-        gatsbyImageData
-      }
-    }
-  }
-`
+// export const galleryQuery = graphql`
+//   query galleryQuery{
+//     gallery{
+//       images {
+//         id
+//         gatsbyImageData
+//       }
+//     }
+//   }
+// `

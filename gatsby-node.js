@@ -351,6 +351,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
       description: String
       image: HomepageImage
+      gallery: Gallery
       html: String!
     }
   `)
@@ -529,11 +530,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       images: [HomepageImage] @link(from: "image___NODE")
     }
 
-    type ContenftulGallery implements Node & Gallery{
-      id: ID!
-      images: [HomepageImage] @link(from: "image___NODE")
-      photos: [HomepageImage] @link(from: "image___NODE")
-    }
   `)
 
   // CMS specific types for About page
@@ -634,7 +630,16 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
       description: String
       image: HomepageImage @link(from: "image___NODE")
+      gallery: Gallery
       html: String! @richText
+    }
+  `)
+
+  actions.createTypes(/* GraphQL */ `
+    type ContenftulGallery implements Node & Gallery{
+      id: ID!
+      images: [HomepageImage] @link(from: "image___NODE")
+      photos: [HomepageImage] @link(from: "image___NODE")
     }
   `)
 }
