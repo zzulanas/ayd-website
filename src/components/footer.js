@@ -111,12 +111,13 @@ export default function Footer() {
         <Space size={5} />
         <Flex variant="start" responsive>
           <Container responsive>
-            <Subhead>ARQUITECTURA y DISEÑO</Subhead>
-            <Text variant="caps">roberto sheinberg</Text>
+            <h1 className="text-4xl">ARQUITECTURA y DISEÑO</h1>
+            <h3 className="text-3xl">roberto sheinberg</h3>
             <Kicker>{address}</Kicker>
           </Container>
           <Space />
-          <Text variant="small">{copyright}</Text>
+          <h2 className="text-m">{copyright}</h2>
+          <Text variant="small">se habla ingles</Text>
         </Flex>
       </Container>
       <Space size={3} />

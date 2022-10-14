@@ -38,5 +38,6 @@ module.exports = {
         icon: "src/favicon.png",
       },
     },
+    "gatsby-plugin-postcss"
   ],
 }

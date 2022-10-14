@@ -72,7 +72,7 @@ export default function Header() {
 
   return (
     <header>
-      <Container className={desktopHeaderNavWrapper}>
+      <Container width="narrow" className={desktopHeaderNavWrapper}>
         <Space size={2} />
         <Flex variant="spaceBetween">
           <NavLink to="/">
@@ -80,7 +80,7 @@ export default function Header() {
             <BrandLogo />
           </NavLink>
           <nav>
-            <FlexList gap={4}>
+            <FlexList gap={4} variant="spaceBetween">
               {navItems &&
                 navItems.map((navItem) => (
                   <li key={navItem.id}>

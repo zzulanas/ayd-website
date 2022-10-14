@@ -328,7 +328,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface Gallery implements Node{
       id: ID!
       images: [HomepageImage]
-      photos: [HomepageImage]
     }
 
     interface HomepageGallery implements Node & HomepageBlock {
@@ -639,7 +638,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContenftulGallery implements Node & Gallery{
       id: ID!
       images: [HomepageImage] @link(from: "image___NODE")
-      photos: [HomepageImage] @link(from: "image___NODE")
     }
   `)
 }
