@@ -14,7 +14,6 @@ export default function Gallery() {
     }
   }
 `)
-console.log(data.contentfulGallery.images)
   return (
     <Section>
       <Container>

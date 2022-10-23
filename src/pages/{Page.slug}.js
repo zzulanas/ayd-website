@@ -38,6 +38,11 @@ export const query = graphql`
         url
         gatsbyImageData
       }
+      gallery {
+        images {
+          gatsbyImageData
+        }
+      }
       html
     }
   }
